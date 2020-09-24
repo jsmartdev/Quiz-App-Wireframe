@@ -64,7 +64,11 @@ const store = {
  * displays the title
  * provides a start butoon which the user can press to begin the quiz*/
 function startQuiz() {
-
+  return `<div class="card">
+  <h2>Press Play to Begin the Sequence</h2>
+  <form id="begin">
+  <input type="submit" value="Play"></input>
+  </div>`;
 }
 /**Template Function - creates the question and answer pages*/
 function poseQuestion(item) {

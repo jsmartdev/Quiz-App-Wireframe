@@ -63,7 +63,7 @@ const store = {
 /**Template Function - creates the opening page of the quiz
  * displays the title
  * provides a start butoon which the user can press to begin the quiz*/
-function startQuiz() {
+function startTemplate() {
   return `<div class="card">
   <h2>Press Play to Begin the Sequence</h2>
   <form id="begin">
@@ -71,7 +71,7 @@ function startQuiz() {
   </div>`;
 }
 /**Template Function - creates the question and answer pages*/
-function poseQuestion(item) {
+function questionTemplate(item) {
   return `<div class="card">
   <h2>${item.question}</h2>
   <form id="choices">
@@ -88,7 +88,7 @@ function poseQuestion(item) {
 </div>`;
 }
 /**Template function - creates the response message page */
-function displayResponse() {
+function responseTemplate() {
 
 }
 

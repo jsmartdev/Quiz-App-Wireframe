@@ -72,7 +72,20 @@ function startQuiz() {
 }
 /**Template Function - creates the question and answer pages*/
 function poseQuestion(item) {
-
+  return `<div class="card">
+  <h2>${item.question}</h2>
+  <form id="choices">
+  <input type="radio" id="${item.answers[0]}" name="answer" value="${item.answers[0]}">
+  <label class="answrbtn" for="answer0">${item.answers[0]}</label><br>
+  <input type="radio" id="${item.answers[1]}" name="answer" value="${item.answers[1]}">
+  <label class="answrbtn" for="answer1">${item.answers[1]}</label><br>
+  <input type="radio" id="${item.answers[2]}" name="answer" value="${item.answers[2]}">
+  <label class="answrbtn" for="answer2">${item.answers[2]}</label>
+  <input type="radio" id="${item.answers[3]}" name="answer" value="${item.answers[3]}">
+  <label class="answrbtn" for="answer3">${item.answers[3]}</label>
+  <button type="submit">Submit</button>
+  </form>
+</div>`;
 }
 /**Template function - creates the response message page */
 function displayResponse() {

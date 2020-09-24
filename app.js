@@ -92,6 +92,11 @@ function responseTemplate() {
 
 }
 
+/**Template function - arranges the final page */
+function finalTemplate() {
+
+}
+
 /**Event Handler - each time a question is answered this function will alert the user with
  * one of two messages depending on whether the correct answer was chosen or not
  * and present them with an input that will take them either to the next question or
@@ -100,10 +105,23 @@ function responseTemplate() {
 function handleAnswer() {
 
 }
-/**simple Render Function - displays current state of the DOM*/
-function render(html) {
+/**Render Function - renders the start page*/
+function renderStart() {
 
 }
+
+function renderQuestion() {
+
+}
+
+function renderResponse() {
+
+}
+
+function renderFinal() {
+
+}
+
 /**Event Handler - this function loads in the first question after the start button has been pressed */ 
 function handleStart() {
 

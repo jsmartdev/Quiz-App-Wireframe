@@ -58,7 +58,8 @@ const store = {
   ],
   quizStarted: false,
   questionNumber: 0,
-  score: 0
+  score: 0,
+  incorrect: 0
 };
 
 /**Template Function - creates the opening page of the quiz
@@ -107,7 +108,7 @@ function responseTemplate() {
 
 /**Template function - arranges the final page */
 function finalTemplate() {
-  return `<form class="flex-column flex-center"><p>${store.response}</p><p><span class="correct">Correct answer: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p><p>That concludes the sequence. Your score is ${store.score} correct and ${store.incorrect} incorrect. </p><button type="submit" class="rstrt-btn" value="Restart"></button></form>`;
+  return `<form class="flex-column flex-center"><p><span class="correct">Correct answer: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p><p>That concludes the sequence. Your score is ${store.score} correct and ${store.incorrect} incorrect. </p><button type="submit" class="rstrt-btn" value="Restart"></button></form>`;
 }
 
 /**Event Handler - this function loads in the first question after the start button has been pressed */ 
@@ -167,7 +168,7 @@ function handleResponse() {
     nxt.preventDefault;
     store.quizStarted = true;
     if (store.questionNumber === store.questions.length) {
-      renderFinal;
+      renderFinal();
     }
     else {
       renderQuestion(); 

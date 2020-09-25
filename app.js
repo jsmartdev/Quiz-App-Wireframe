@@ -60,6 +60,7 @@ const store = {
   questionNumber: 0,
   score: 0
 };
+
 /**Template Function - creates the opening page of the quiz
  * displays the title
  * provides a start butoon which the user can press to begin the quiz*/
@@ -70,6 +71,7 @@ function startTemplate() {
   <input type="submit" value="Play"></input>
   </div>`;
 }
+
 /**Template Function - creates the question and answer pages*/
 function questionTemplate(item) {
   return `<div class="card">
@@ -87,6 +89,7 @@ function questionTemplate(item) {
   </form>
 </div>`;
 }
+
 /**Template function - creates the response message page */
 function responseTemplate() {
 
@@ -94,6 +97,11 @@ function responseTemplate() {
 
 /**Template function - arranges the final page */
 function finalTemplate() {
+
+}
+
+/**Event Handler - this function loads in the first question after the start button has been pressed */ 
+function handleStart() {
 
 }
 
@@ -105,6 +113,7 @@ function finalTemplate() {
 function handleAnswer() {
 
 }
+
 /**Render Function - renders the start page*/
 function renderStart() {
 
@@ -122,10 +131,6 @@ function renderFinal() {
 
 }
 
-/**Event Handler - this function loads in the first question after the start button has been pressed */ 
-function handleStart() {
-
-}
 /**gestalt function which activates the event handlers 
  * and then renders the startpage (where everything comes together)*/
 function main() {

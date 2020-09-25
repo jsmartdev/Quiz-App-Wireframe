@@ -13,7 +13,7 @@ const store = {
         'Bass',
         'Sawtooth'
       ],
-      correctAnswer: 2
+      correctAnswer: 'Bass'
     },
     {
       question: 'What does CV stand for?',
@@ -23,7 +23,7 @@ const store = {
         'Constant Variable',
         'Control Voltage'
       ],
-      correctAnswer: 3
+      correctAnswer: 'Control Voltage'
     },
     {
       question: 'Which does not belong in a subtractive signal path?',
@@ -33,7 +33,7 @@ const store = {
         'Oscillator',
         'Amplifier'
       ],
-      correctAnswer: 1
+      correctAnswer: 'Clock Generator'
     },
     {
       question: 'Which is not a form of audio synthesis?',
@@ -43,7 +43,7 @@ const store = {
         'Frequency Modulation',
         'Sample and Hold'
       ],
-      correctAnswer: 3
+      correctAnswer: 'Sample and Hold'
     },
     {
       question: 'What function does an oscillator perform?',
@@ -53,7 +53,7 @@ const store = {
         'Passes all frequencies below a specified cutoff',
         'Defines how a given sound will change over time'
       ],
-      correctAnswer: 0
+      correctAnswer: 'Generates sound'
     },
   ],
   quizStarted: false,
@@ -66,43 +66,57 @@ const store = {
  * provides a start butoon which the user can press to begin the quiz*/
 function startTemplate() {
   return `<div>
-  <h2>Press Play to Begin the Sequence</h2>
+  <h2>Please press "Play" to begin the sequence</h2>
   <form id="begin" class="start-form">
-  <input type="submit" value="Play" class="play-button"></input>
+  <input type="submit" value="Play" class="play-btn"></input>
   </div>`;
 }
 
 /**Template Function - creates the question and answer pages*/
-function questionTemplate(item) {
-  return `<div>
-  <h2>${item.question}</h2>
-  <form id="choices">
-  <input type="radio" id="${item.answers[0]}" name="answer" value="${item.answers[0]}">
-  <label class="answr-btn" for="answer0">${item.answers[0]}</label><br>
-  <input type="radio" id="${item.answers[1]}" name="answer" value="${item.answers[1]}">
-  <label class="answr-btn" for="answer1">${item.answers[1]}</label><br>
-  <input type="radio" id="${item.answers[2]}" name="answer" value="${item.answers[2]}">
-  <label class="answr-btn" for="answer2">${item.answers[2]}</label>
-  <input type="radio" id="${item.answers[3]}" name="answer" value="${item.answers[3]}">
-  <label class="answr-btn" for="answer3">${item.answers[3]}</label>
-  <button type="submit">Play</button>
-  </form>
-</div>`;
+function questionTemplate() {
+  return ` <form id="qstn" class="qstn-form"><p class="question"><span class="num">Question ${store.questionNumber + 1} of ${store.questions.length}</span> ${store.questions[store.questionNumber].question}</p><div class="inp">
+  <input type="radio" id="answer1" name="answer" value="${store.questions[store.questionNumber].answers[0]}" class="answer1" required>
+  <label class="answr-btn" for="answer1">${store.questions[store.questionNumber].answers[0]}</label>
+
+
+<br>
+<input type="radio" id="answer2" name="answer" value="${store.questions[store.questionNumber].answers[1]}" class="answer2" required>
+<label class="answr-btn" for="answer2">${store.questions[store.questionNumber].answers[1]}</label>
+
+
+<br>
+<input type="radio" id="answer3" name="answer" value="${store.questions[store.questionNumber].answers[2]}" class="answer3" required>
+<label class="answr-btn" for="answer3">${store.questions[store.questionNumber].answers[2]}</label>
+
+
+<br>
+<input type="radio" id="answer4" name="answer" value="${store.questions[store.questionNumber].answers[3]}" class="answer4"  required>
+<label class="answr-btn" for="answer4">${store.questions[store.questionNumber].answers[3]}</label>
+<br></div>
+<button class='advnc-btn' type='submit'>Advance</button>
+
+<br>
+
+<p><span class="correct">Correct Answers: ${store.score} </span><br><span class="incorrect">Incorrect Answers: ${store.incorrect}</span></p></form>`;
 }
 
 /**Template function - creates the response message page */
 function responseTemplate() {
-
+  return `<form class="flex-column flex-center"><button class='next' type='submit'>Proceed</button><p>${store.response}</p><p><span class="correct">Correct answer: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
 }
 
 /**Template function - arranges the final page */
 function finalTemplate() {
-
+  return `<form class="flex-column flex-center"><p>${store.response}</p><p><span class="correct">Correct answer: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p><p>That concludes the sequence. Your score is ${store.score} correct and ${store.incorrect} incorrect. </p><button type="submit" class="rstrt-btn" value="Restart"></button></form>`;
 }
 
 /**Event Handler - this function loads in the first question after the start button has been pressed */ 
 function handleStart() {
-
+  $('main').on('click', "#begin", function (evt) {
+    evt.preventDefault();
+    store.quizStarted = true;
+    renderQuestion();
+ });
 }
 
 /**Event Handler - each time a question is answered this function will alert the user with
@@ -111,12 +125,18 @@ function handleStart() {
  * the end page
  */
 function handleAnswer() {
-
+ 
 }
 
 /**Event Handler -  */
 function handleError() {
-
+  $('main').on('click', 'button', function(e) {
+    if ($(e.currentTarget).text() === '') {
+      if (!$('input[name="answer"]:checked').val()) {
+        $('.answr-btn').addClass('error-alert');
+      }
+    }
+  })
 }
 
 /**Render Function - renders the start page*/

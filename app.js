@@ -108,7 +108,7 @@ function responseTemplate() {
 
 /**Template function - arranges the final page */
 function finalTemplate() {
-  return `<form class="flex-column flex-center"><p><span class="correct">Correct answer: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p><p>That concludes the sequence. Your score is ${store.score} correct and ${store.incorrect} incorrect. </p><button type="submit" class="rstrt-btn" value="Restart"></button></form>`;
+  return `<form class="flex-column flex-center"><p>That concludes the sequence. Your score is ${store.score} correct and ${store.incorrect} incorrect. </p><input type="submit" class="rstrt-btn" value="Restart"></button></form>`;
 }
 
 /**Event Handler - this function loads in the first question after the start button has been pressed */ 
@@ -174,10 +174,6 @@ function handleResponse() {
       renderQuestion(); 
     } 
   })
-}
-
-function handleRestart() {
-
 }
 
 /**Render Function - renders the start page*/

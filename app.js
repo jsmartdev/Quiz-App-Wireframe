@@ -102,7 +102,7 @@ function questionTemplate() {
 
 /**Template function - creates the response message page */
 function responseTemplate() {
-  return `<form class="flex-column flex-center"><button class='next' type='submit'>Proceed</button><p>${store.response}</p><p><span class="correct">Correct answer: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
+  return `<form id="next" class="flex-column flex-center"><input class="advnc-btn" type='submit' value="Advance"></button><p>${store.response}</p><p><span class="correct">Correct answers: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
 }
 
 /**Template function - arranges the final page */
@@ -111,6 +111,13 @@ function finalTemplate() {
 }
 
 /**Event Handler - this function loads in the first question after the start button has been pressed */ 
+
+function onlyStartIf() {
+  if (!store.quizStarted) {
+    renderStart();
+  }
+}
+
 function handleStart() {
   $('main').on('click', "#begin", function (evt) {
     evt.preventDefault();
@@ -125,7 +132,23 @@ function handleStart() {
  * the end page
  */
 function handleAnswer() {
- 
+  $("main").on("submit", "#qstn", function(evt) {
+    evt.preventDefault();
+    let currentQuestion = store.questions[store.questionNumber];
+    let answer = $('input[name=answer]:checked').val();
+    console.log(answer,currentQuestion.correctAnswer);
+    store.questionNumber += 1;
+    if (answer === currentQuestion.correctAnswer) {
+      store.score += 1;
+      store.response = "That is Correct!";
+      renderResponse();
+    } 
+    else {
+      store.incorrect += 1;
+      store.response = `Sorry, the answer is ${currentQuestion.correctAnswer}`;
+      renderResponse();
+    }
+}); 
 }
 
 /**Event Handler -  */
@@ -137,6 +160,23 @@ function handleError() {
       }
     }
   })
+}
+
+function handleResponse() {
+  $('main').on("submit", "#next", function(nxt) {
+    nxt.preventDefault;
+    store.quizStarted = true;
+    if (store.questionNumber === store.questions.length) {
+      renderFinal;
+    }
+    else {
+      renderQuestion(); 
+    } 
+  })
+}
+
+function handleRestart() {
+
 }
 
 /**Render Function - renders the start page*/
@@ -163,10 +203,11 @@ function renderFinal() {
 /**gestalt function which activates the event handlers 
  * and then renders the startpage (where everything comes together)*/
 function main() {
-handleStart();
-handleAnswer();
-handleError();
-renderStart();
+  onlyStartIf();
+  handleStart();
+  handleAnswer();
+  handleResponse();
+  handleRetake();
 }
 /**executes main function */
 $(main);

@@ -23,10 +23,14 @@
   text-align: center;
 }
 
+.strt-sqnc {
+}
+
 .pls-prs-ply {
   color: antiquewhite;
   font-family: Georgia;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .qstn-nmbr {
@@ -52,28 +56,30 @@ text-align: center;
 }
 
 .choices {
-text-align: center;
-margin-bottom: 10px;
+margin-right: 50%;
+margin-left: 50%;
 }
 
-.score {
-  text-align: center;
+.score {  
+
 }
 
 /** Buttons*/
 
 .play-btn {
-margin: auto;
+width: 14%;
+margin-left: 43%;
+margin-right: 43%;
 }
 
 .answr-btn {
-margin: auto;
+
 }
 
 .advnc-btn {
-margin: auto;
+
 }
 
 .rstrt-btn {
-margin: auto;
+
 }

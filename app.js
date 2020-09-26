@@ -66,17 +66,16 @@ const store = {
  * displays the title
  * provides a start butoon which the user can press to begin the quiz*/
 function startTemplate() {
-  return `<div>
+  return `<div class="strt-sqnc">
   <h2 class="pls-prs-ply">Please press "Play" to begin the sequence</h2>
-  <form id="begin">
-  <input type="submit" value="Play" class="play-btn"></input>
+  <br>
+  <form id="begin"><input type="submit" value="Play" class="play-btn"></input></form>
   </div>`;
 }
 
 /**Template Function - creates the question and answer pages*/
 function questionTemplate() {
-  return `<form id="qstn" class="qstn-form">
-  <h2 class="qstn-nmbr">Question ${store.questionNumber + 1} of ${store.questions.length}</h2>
+  return `<form id="qstn"><h2 class="qstn-nmbr">Question ${store.questionNumber + 1} of ${store.questions.length}</h2>
   <br>
   <h2 class="qstn-txt"> ${store.questions[store.questionNumber].question}</h2>
   <div class="choices">
@@ -109,7 +108,6 @@ function responseTemplate() {
   <div class="advnc-cntnr">
   <input class="advnc-btn" type='submit' value="Advance"></button>
   </div>
-  <p class="score">Correct answers: ${store.score} </span><br>Incorrect answers: ${store.incorrect}</p>
   </form>`;
 }
 

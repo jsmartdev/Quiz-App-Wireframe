@@ -16,9 +16,13 @@
   font-family: Georgia;
 }
 
-.pls-prs-ply, .qstn-nmbr, .qstn-txt {
+.pls-prs-ply, .qstn-nmbr, t {
   color: antiquewhite;
   font-family: Georgia;
+}
+
+.qstn-tx {
+
 }
 
 .choices {

@@ -9,8 +9,6 @@
 
 .global {
   background-color: lightcoral;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,8 +21,6 @@
   text-align: center;
 }
 
-.strt-sqnc {
-}
 
 .pls-prs-ply {
   color: antiquewhite;
@@ -55,13 +51,20 @@
 text-align: center;
 }
 
-.choices {
-margin-right: 50%;
-margin-left: 50%;
+.answrs-cntnr {
 }
 
-.score {  
+.answr-btn-cntnr {
+align-content: center;  
+width: 20%;  
+margin-left: 40%;
+margin-right: 40%;
+}
 
+.advnc-cntnr {
+  width: 20%;
+  margin-left: 40%;
+  margin-right: 50%;
 }
 
 /** Buttons*/
@@ -73,7 +76,7 @@ margin-right: 43%;
 }
 
 .answr-btn {
-
+  text-align: left;
 }
 
 .advnc-btn {

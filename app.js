@@ -78,7 +78,7 @@ function questionTemplate() {
   return `<form id="qstn"><h2 class="qstn-nmbr">Question ${store.questionNumber + 1} of ${store.questions.length}</h2>
   <br>
   <h2 class="qstn-txt"> ${store.questions[store.questionNumber].question}</h2>
-  <div class="choices">
+  <div class="answrs-cntnr">
   <input type="radio" id="answer1" name="answer" value="${store.questions[store.questionNumber].answers[0]}" class="answer1" required>
   <label class="answr-btn" for="answer1">${store.questions[store.questionNumber].answers[0]}</label>
   <br>
@@ -92,11 +92,9 @@ function questionTemplate() {
   <label class="answr-btn" for="answer4">${store.questions[store.questionNumber].answers[3]}</label>
   </div>
   <br>
-  <div class="answr-cntnr">
+  <div class="answr-btn-cntnr">
   <input class='answr-btn' type='submit' value="Answer"></input>
   </div>
-  <br>
-  <p class="score">Correct Answers: ${store.score}<br>Incorrect Answers: ${store.incorrect}</p>
   </form>`;
 }
 
@@ -163,12 +161,12 @@ function handleAnswer() {
     store.questionNumber += 1;
     if (answer === currentQuestion.correctAnswer) {
       store.score += 1;
-      store.response = "That is Correct!";
+      store.response = "That is indeed correct!";
       renderResponse();
     } 
     else {
       store.incorrect += 1;
-      store.response = `Sorry, the answer is ${currentQuestion.correctAnswer}`;
+      store.response = `Sorry, the answer is: "${currentQuestion.correctAnswer}"`;
       renderResponse();
     }
 }); 

@@ -38,7 +38,7 @@
 .rspns {
   color: antiquewhite;
   font-family: Georgia;
-  text-align: ;
+  text-align: center;
 }
 
 .fnl-scr {
@@ -53,6 +53,7 @@ text-align: center;
 
 .choices {
 text-align: center;
+margin-bottom: 10px;
 }
 
 .score {
@@ -62,17 +63,17 @@ text-align: center;
 /** Buttons*/
 
 .play-btn {
-
+margin: auto;
 }
 
 .answr-btn {
-
+margin: auto;
 }
 
 .advnc-btn {
-
+margin: auto;
 }
 
 .rstrt-btn {
-
+margin: auto;
 }

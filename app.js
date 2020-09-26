@@ -75,40 +75,53 @@ function startTemplate() {
 
 /**Template Function - creates the question and answer pages*/
 function questionTemplate() {
-  return ` <form id="qstn" class="qstn-form"><h2 class="qstn-nmbr">Question ${store.questionNumber + 1} of ${store.questions.length}</h2><br><h2 class="qstn-txt"> ${store.questions[store.questionNumber].question}</h2><div class="choices">
+  return `<form id="qstn" class="qstn-form">
+  <h2 class="qstn-nmbr">Question ${store.questionNumber + 1} of ${store.questions.length}</h2>
+  <br>
+  <h2 class="qstn-txt"> ${store.questions[store.questionNumber].question}</h2>
+  <div class="choices">
   <input type="radio" id="answer1" name="answer" value="${store.questions[store.questionNumber].answers[0]}" class="answer1" required>
   <label class="answr-btn" for="answer1">${store.questions[store.questionNumber].answers[0]}</label>
-
-
-<br>
-<input type="radio" id="answer2" name="answer" value="${store.questions[store.questionNumber].answers[1]}" class="answer2" required>
-<label class="answr-btn" for="answer2">${store.questions[store.questionNumber].answers[1]}</label>
-
-
-<br>
-<input type="radio" id="answer3" name="answer" value="${store.questions[store.questionNumber].answers[2]}" class="answer3" required>
-<label class="answr-btn" for="answer3">${store.questions[store.questionNumber].answers[2]}</label>
-
-
-<br>
-<input type="radio" id="answer4" name="answer" value="${store.questions[store.questionNumber].answers[3]}" class="answer4"  required>
-<label class="answr-btn" for="answer4">${store.questions[store.questionNumber].answers[3]}</label>
-<br></div>
-<button class='advnc-btn' type='submit'>Advance</button>
-
-<br>
-
-<p class="score"><span class="correct">Correct Answers: ${store.score} </span><br><span class="incorrect">Incorrect Answers: ${store.incorrect}</span></p></form>`;
+  <br>
+  <input type="radio" id="answer2" name="answer" value="${store.questions[store.questionNumber].answers[1]}" class="answer2" required>
+  <label class="answr-btn" for="answer2">${store.questions[store.questionNumber].answers[1]}</label>
+  <br>
+  <input type="radio" id="answer3" name="answer" value="${store.questions[store.questionNumber].answers[2]}" class="answer3" required>
+  <label class="answr-btn" for="answer3">${store.questions[store.questionNumber].answers[2]}</label>
+  <br>
+  <input type="radio" id="answer4" name="answer" value="${store.questions[store.questionNumber].answers[3]}" class="answer4" required>
+  <label class="answr-btn" for="answer4">${store.questions[store.questionNumber].answers[3]}</label>
+  </div>
+  <br>
+  <div class="answr-cntnr">
+  <input class='answr-btn' type='submit' value="Answer"></input>
+  </div>
+  <br>
+  <p class="score">Correct Answers: ${store.score}<br>Incorrect Answers: ${store.incorrect}</p>
+  </form>`;
 }
 
 /**Template function - creates the response message page */
 function responseTemplate() {
-  return `<form id="next" class="advnc-form"><h2 class="rspns">${store.response}</h2><br><input class="advnc-btn" type='submit' value="Advance"></button><p class="score"><span class="correct">Correct answers: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
+  return `<form id="rspns" class="rspns-form">
+  <h2 class="rspns">${store.response}</h2>
+  <br>
+  <div class="advnc-cntnr">
+  <input class="advnc-btn" type='submit' value="Advance"></button>
+  </div>
+  <p class="score">Correct answers: ${store.score} </span><br>Incorrect answers: ${store.incorrect}</p>
+  </form>`;
 }
 
 /**Template function - arranges the final page */
 function finalTemplate() {
-  return `<form id ="rstrt" class="flex-column flex-center"><h2 class="fnl-scr">That concludes the sequence.<br>Your score is ${store.score} correct and ${store.incorrect} incorrect.</h2><br><input type="submit" class="rstrt-btn" value="Restart"></button></form>`;
+  return `<form id ="final" class="fnl-form">
+  <h2 class="fnl-scr">That concludes the sequence.<br>Your score is ${store.score} correct and ${store.incorrect} incorrect.</h2>
+  <br>
+  <div class="rstrt-cntnr">
+  <input type="submit" class="rstrt-btn" value="Restart"></button>
+  </div>
+  </form>`;
 }
 
 /**Event Handler - this function loads in the first question after the start button has been pressed */ 
@@ -120,7 +133,7 @@ function onlyStartIf() {
 }
 
 function handleRestart() {
-  $('main').on("submit", "#rstrt", function (ebt) {
+  $('main').on("submit", "#final", function (ebt) {
     ebt.preventDefault();
     store.questionNumber = 0;
     store.incorrect = 0;
@@ -175,7 +188,7 @@ function handleError() {
 }
 
 function handleResponse() {
-  $('main').on("submit", "#next", function(nxt) {
+  $('main').on("submit", "#rspns", function(nxt) {
     nxt.preventDefault;
     store.quizStarted = true;
     if (store.questionNumber === store.questions.length) {

@@ -7,3 +7,20 @@
   *
 */
 
+.global {
+  background-color: lightcoral;
+}
+
+.title {
+  color: antiquewhite;
+  font-family: Georgia;
+}
+
+.pls-prs-ply, .qstn-nmbr, .qstn-txt {
+  color: antiquewhite;
+  font-family: Georgia;
+}
+
+.choices {
+
+}

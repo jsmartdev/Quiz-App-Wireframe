@@ -49,22 +49,34 @@
 
 .qstn-txt {
 text-align: center;
-}
-
-.answrs-cntnr {
+margin-left: 10px;
+margin-right: 10px;
 }
 
 .answr-btn-cntnr {
-align-content: center;  
-width: 20%;  
-margin-left: 40%;
-margin-right: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+.answrs-cntnr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
 }
 
 .advnc-cntnr {
-  width: 20%;
-  margin-left: 40%;
-  margin-right: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+.score {
+  text-align: center;
+  font-size: 1.25em;
 }
 
 /** Buttons*/
@@ -76,7 +88,6 @@ margin-right: 43%;
 }
 
 .answr-btn {
-  text-align: left;
 }
 
 .advnc-btn {
@@ -84,5 +95,9 @@ margin-right: 43%;
 }
 
 .rstrt-btn {
-
+width: 14%;
+margin-left: 43%;
+margin-right: 43%;
 }
+
+

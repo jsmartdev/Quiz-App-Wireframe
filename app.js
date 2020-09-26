@@ -16,7 +16,7 @@ const store = {
       correctAnswer: 'Bass'
     },
     {
-      question: 'What does CV stand for?',
+      question: 'What does the acronym CV stand for?',
       answers: [
         'Code Verification',
         'Clear Violation',
@@ -77,6 +77,7 @@ function startTemplate() {
 function questionTemplate() {
   return `<form id="qstn"><h2 class="qstn-nmbr">Question ${store.questionNumber + 1} of ${store.questions.length}</h2>
   <br>
+  <section class="qstn-answr-sec">
   <h2 class="qstn-txt"> ${store.questions[store.questionNumber].question}</h2>
   <div class="answrs-cntnr">
   <input type="radio" id="answer1" name="answer" value="${store.questions[store.questionNumber].answers[0]}" class="answer1" required>
@@ -91,9 +92,16 @@ function questionTemplate() {
   <input type="radio" id="answer4" name="answer" value="${store.questions[store.questionNumber].answers[3]}" class="answer4" required>
   <label class="answr-btn" for="answer4">${store.questions[store.questionNumber].answers[3]}</label>
   </div>
+  </section>
   <br>
   <div class="answr-btn-cntnr">
   <input class='answr-btn' type='submit' value="Answer"></input>
+  </div>
+  <div class+"scr-crd">
+   <p class="score">Your current score is: 
+   <br>${store.score} correct
+   <br>${store.incorrect} incorrect
+   </p>
   </div>
   </form>`;
 }
@@ -103,6 +111,12 @@ function responseTemplate() {
   return `<form id="rspns" class="rspns-form">
   <h2 class="rspns">${store.response}</h2>
   <br>
+  <div class+"scr-crd">
+   <p class="score">Your current score is: 
+   <br>${store.score} correct
+   <br>${store.incorrect} incorrect
+   </p>
+  </div>
   <div class="advnc-cntnr">
   <input class="advnc-btn" type='submit' value="Advance"></button>
   </div>

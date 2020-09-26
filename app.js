@@ -98,17 +98,17 @@ function questionTemplate() {
 
 <br>
 
-<p><span class="correct">Correct Answers: ${store.score} </span><br><span class="incorrect">Incorrect Answers: ${store.incorrect}</span></p></form>`;
+<p class="score"><span class="correct">Correct Answers: ${store.score} </span><br><span class="incorrect">Incorrect Answers: ${store.incorrect}</span></p></form>`;
 }
 
 /**Template function - creates the response message page */
 function responseTemplate() {
-  return `<form id="next" class="advnc-form"><h2 class="rspns">${store.response}</h2><br><input class="advnc-btn" type='submit' value="Advance"></button><p><span class="correct">Correct answers: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
+  return `<form id="next" class="advnc-form"><h2 class="rspns">${store.response}</h2><br><input class="advnc-btn" type='submit' value="Advance"></button><p class="score"><span class="correct">Correct answers: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
 }
 
 /**Template function - arranges the final page */
 function finalTemplate() {
-  return `<form id ="rstrt" class="flex-column flex-center"><p>That concludes the sequence. Your score is ${store.score} correct and ${store.incorrect} incorrect. </p><input type="submit" class="rstrt-btn" value="Restart"></button></form>`;
+  return `<form id ="rstrt" class="flex-column flex-center"><h2 class="fnl-scr">That concludes the sequence.<br>Your score is ${store.score} correct and ${store.incorrect} incorrect.</h2><br><input type="submit" class="rstrt-btn" value="Restart"></button></form>`;
 }
 
 /**Event Handler - this function loads in the first question after the start button has been pressed */ 

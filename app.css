@@ -16,7 +16,22 @@
   font-family: Georgia;
 }
 
-.pls-prs-ply, .qstn-nmbr, .rspns, .fnl-scr {
+.pls-prs-ply {
+  color: antiquewhite;
+  font-family: Georgia;
+}
+
+.qstn-nmbr {
+  color: antiquewhite;
+  font-family: Georgia;
+}
+
+.rspns {
+  color: antiquewhite;
+  font-family: Georgia;
+}
+
+.fnl-scr {
   color: antiquewhite;
   font-family: Georgia;
 }

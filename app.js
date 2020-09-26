@@ -68,7 +68,7 @@ const store = {
 function startTemplate() {
   return `<div>
   <h2 class="pls-prs-ply">Please press "Play" to begin the sequence</h2>
-  <form id="begin" class="start-form">
+  <form id="begin">
   <input type="submit" value="Play" class="play-btn"></input>
   </div>`;
 }
@@ -103,12 +103,12 @@ function questionTemplate() {
 
 /**Template function - creates the response message page */
 function responseTemplate() {
-  return `<form id="next" class="advnc-form"><input class="advnc-btn" type='submit' value="Advance"></button><p>${store.response}</p><p><span class="correct">Correct answers: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
+  return `<form id="next" class="advnc-form"><h2 class="rspns">${store.response}</h2><br><input class="advnc-btn" type='submit' value="Advance"></button><p><span class="correct">Correct answers: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
 }
 
 /**Template function - arranges the final page */
 function finalTemplate() {
-  return `<form class="flex-column flex-center"><p>That concludes the sequence. Your score is ${store.score} correct and ${store.incorrect} incorrect. </p><input type="submit" class="rstrt-btn" value="Restart"></button></form>`;
+  return `<form id ="rstrt" class="flex-column flex-center"><p>That concludes the sequence. Your score is ${store.score} correct and ${store.incorrect} incorrect. </p><input type="submit" class="rstrt-btn" value="Restart"></button></form>`;
 }
 
 /**Event Handler - this function loads in the first question after the start button has been pressed */ 
@@ -119,8 +119,19 @@ function onlyStartIf() {
   }
 }
 
+function handleRestart() {
+  $('main').on("submit", "#rstrt", function (ebt) {
+    ebt.preventDefault();
+    store.questionNumber = 0;
+    store.incorrect = 0;
+    store.score = 0;
+    store.quizStarted = true;
+    renderQuestion();
+ }); 
+}
+
 function handleStart() {
-  $('main').on('click', "#begin", function (evt) {
+  $('main').on("submit", "#begin", function (evt) {
     evt.preventDefault();
     store.quizStarted = true;
     renderQuestion();
@@ -204,7 +215,7 @@ function main() {
   handleStart();
   handleAnswer();
   handleResponse();
-  handleRetake();
+  handleRestart();
 }
 /**executes main function */
 $(main);

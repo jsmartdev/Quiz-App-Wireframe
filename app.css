@@ -9,39 +9,54 @@
 
 .global {
   background-color: lightcoral;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
 }
 
 .title {
   color: antiquewhite;
   font-family: Georgia;
+  text-align: center;
 }
 
 .pls-prs-ply {
   color: antiquewhite;
   font-family: Georgia;
+  text-align: center;
 }
 
 .qstn-nmbr {
   color: antiquewhite;
   font-family: Georgia;
+  text-align: center;
 }
 
 .rspns {
   color: antiquewhite;
   font-family: Georgia;
+  text-align: ;
 }
 
 .fnl-scr {
   color: antiquewhite;
   font-family: Georgia;
+  text-align: center;
 }
 
 .qstn-txt {
-
+text-align: center;
 }
 
 .choices {
+text-align: center;
+}
 
+.score {
+  text-align: center;
 }
 
 /** Buttons*/

@@ -67,7 +67,7 @@ const store = {
  * provides a start butoon which the user can press to begin the quiz*/
 function startTemplate() {
   return `<div>
-  <h2>Please press "Play" to begin the sequence</h2>
+  <h2 class="pls-prs-ply">Please press "Play" to begin the sequence</h2>
   <form id="begin" class="start-form">
   <input type="submit" value="Play" class="play-btn"></input>
   </div>`;
@@ -75,7 +75,7 @@ function startTemplate() {
 
 /**Template Function - creates the question and answer pages*/
 function questionTemplate() {
-  return ` <form id="qstn" class="qstn-form"><p class="question"><span class="num">Question ${store.questionNumber + 1} of ${store.questions.length}</span> ${store.questions[store.questionNumber].question}</p><div class="inp">
+  return ` <form id="qstn" class="qstn-form"><h2 class="qstn-nmbr">Question ${store.questionNumber + 1} of ${store.questions.length}</h2><br><h2 class="qstn-txt"> ${store.questions[store.questionNumber].question}</h2><div class="choices">
   <input type="radio" id="answer1" name="answer" value="${store.questions[store.questionNumber].answers[0]}" class="answer1" required>
   <label class="answr-btn" for="answer1">${store.questions[store.questionNumber].answers[0]}</label>
 
@@ -103,7 +103,7 @@ function questionTemplate() {
 
 /**Template function - creates the response message page */
 function responseTemplate() {
-  return `<form id="next" class="flex-column flex-center"><input class="advnc-btn" type='submit' value="Advance"></button><p>${store.response}</p><p><span class="correct">Correct answers: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
+  return `<form id="next" class="advnc-form"><input class="advnc-btn" type='submit' value="Advance"></button><p>${store.response}</p><p><span class="correct">Correct answers: ${store.score} </span><br><span class="incorrect">Incorrect answers: ${store.incorrect}</span></p></form>`;
 }
 
 /**Template function - arranges the final page */

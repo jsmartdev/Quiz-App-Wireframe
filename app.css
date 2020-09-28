@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .title {
@@ -20,7 +20,6 @@
   font-family: Georgia;
   text-align: center;
 }
-
 
 .pls-prs-ply {
   color: antiquewhite;
@@ -48,30 +47,30 @@
 }
 
 .qstn-txt {
-text-align: center;
-margin-left: 10px;
-margin-right: 10px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .answr-btn-cntnr {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 .answrs-cntnr {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 .advnc-cntnr {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .score {
@@ -82,23 +81,39 @@ margin-right: 10px;
 /** Buttons*/
 
 .play-btn {
-width: 14%;
-margin-left: 43%;
-margin-right: 43%;
+  width: 14%;
+  margin-left: 43%;
+  margin-right: 43%;
 }
 
 .rstrt-btn {
-width: 14%;
-margin-left: 43%;
-margin-right: 43%;
+  width: 14%;
+  margin-left: 43%;
+  margin-right: 43%;
 }
 
-@media all and (min-width: 750px) {
-.title {
-  font-size: 3rem;
-}
+@media all and (min-width: 650px) {
+  .title {
+    font-size: 3rem;
+  }
 
-.pls-prs-ply {
-  font-size: 2rem;
-}
+  .pls-prs-ply {
+    font-size: 2rem;
+  }
+
+  .score {
+    font-size: 1.5rem;
+  }
+
+  .qstn-txt {
+    font-size: 2rem;
+  }
+
+  .answr-btn {
+    font-size: 1.5rem;
+  }
+
+  .fnl-scr {
+    font-size: 2rem;
+  }
 }
